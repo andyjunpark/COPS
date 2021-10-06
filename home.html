@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="custom.css">
+  <script src="https://kit.fontawesome.com/92f820b860.js" crossorigin="anonymous"></script>
+</head>
+
+<header>
+	<img src="img/cops_logo.jpg" alt="Simply Easy Learning" min-width="150"
+	height="75" style="display:block; margin-left:auto; margin-right:auto">
+</header>
+
+<body>
+  <main id="main-holder">
+    <div class="home"> 
+	<h1>COVID-19 Outbreak Prediction System</h1>
+     <h3> Enter the following simulation parameters</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     <form action="{{url_for('predict')}}"method="post">
+		 <br>
+		<div>
+			<label id = "param1" for="param1">1.Distribution of bubble sizes in communities </label>
+			<input type="text" style ="width: 200px;"name="param1" placeholder="any integer value in range [1,6]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param2" for="param2">2.Transmission rates by age group during contagious period</label>
+			<input type="text" style ="width: 200px;" name="param2" placeholder="any value in range [0,infinity]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>
+		<div>
+			<label id = "param3" for="param3">3.Transmission risk reduction factor during pre-symptomatic</label>
+			<input type="text" style ="width: 200px;" name="param3" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param4" for="param4">4.Percent of cases that are asymptomatic</label>
+			<input type="text" style ="width: 200px;" name="param3" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param5" for="param5">5.Factor to apply to baseline transmission risk for each environment where contact occurs</label>
+			<input type="text" style ="width: 200px;" name="param5" placeholder="any value in range [0,infinity]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param6" for="param6">6.Probability of an individual stays home when symptomatic</label>
+			<input type="text" style ="width: 200px;" name="param6" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param7" for="param7">7.Probability of a household quarantines when one person in the household shows symtoms</label>
+			<input type="text" style ="width: 200px;" name="param7" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param8" for="param8">8.Probability of an individual presents at ED (susceptible or infectious)</label>
+			<input type="text" style ="width: 200px;" name="param8" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param9" for="param9">9.Probability of an individual visits primary care physician or 'flu clinic; when symptomatic</label>
+			<input type="text" style ="width: 200px;" name="param9" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param10" for="param10">10.Probability of an infected import group self-quarantines</label>
+			<input type="text" style ="width: 200px;" name="param10" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param11" for="param11">11.Probability of an infected import group stays home when symptoms appear</label>
+			<input type="text" style ="width: 200px;" name="param11" placeholder="any value in range [0,1]" required="required" />
+		<div class="tooltip">
+			<span class="tooltiptext">
+				Description: </br>
+				Range: </br>
+				Base Case Value: </br>
+			</span>
+			<i class="far fa-question-circle"></i>
+		</div>
+	<br>	
+		<div>
+			<label id = "param12" for="param12">12.Duration(in days) of imposed self-isolation for unconfirmed cases (e.g., travellers)</label>
+			<input type="text" style ="width: 200px;" name="param12" placeholder="any value in range [0,infinity]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param13" for="param13">13.Is contact tracing performed?</label>
+			<input type="text" style ="width: 200px;" name="param13" placeholder="0 - No or 1 - Yes" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param14" for="param13">14.Is there a school policy?</label>
+			<input type="text" style ="width: 200px;" name="param14" placeholder="0 - No or 1 - Yes" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param15" for="param15">15.School closure treasure (number of infected)</label>
+			<input type="text" style ="width: 200px;" name="param15" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param16" for="param16">16.Percentage of the entire population that needs to be infectious to have schools close</label>
+			<input type="text" style ="width: 200px;" name="param16" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>	
+		<div>
+			<label id = "param17" for="param17">17.Percentage of infected at work to close</label>
+			<input type="text" style ="width: 200px;" name="param17" placeholder="any value in range [0,1]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+	<br>
+		<div>
+			<label id = "param18" for="param18">18.Maximum number of days that an office can be closed for</label>
+			<input type="text" style ="width: 200px;" name="param12" placeholder="any value in range [0,infinity]" required="required" />
+			<div class="tooltip">
+				<span class="tooltiptext">
+					Description: </br>
+					Range: </br>
+					Base Case Value: </br>
+				</span>
+				<i class="far fa-question-circle"></i>
+			</div>
+		</div>
+			<input type="checkbox" id="scales" name="scales"
+				   checked>
+			<label for="scales">Set as Default</label>
+        <button type="submit" name = "submit" value = "Submit" class="btn" style="margin-left: 50px;" onclick="location.href='index.html';">Predict</button>
+    </form>
+   <br>
+ 
+ </div>        
+  </main>
+</body>
+
+</html>
